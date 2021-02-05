@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subtraction</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="wrapper">
+    <input type="text" id="firstNumber" value="66.33" disabled>
+    <input type="text" id="secondNumber" value="44.18" disabled>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    
+    function substract () {
+        let $firstNumber = $("#firstNumber").val();
+        let $secondNumber = $("#secondNumber").val();
+    
+        let $sub = Number($firstNumber) - Number($secondNumber);
+
+
+        $("#result").append($sub);
+
+    }
+</script>
+<script>$(substract())</script>
+</body>
+</html>

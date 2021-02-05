@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Time Converter</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <style>
+    label, input {
+      display: inline-block;
+      width: 5em;
+    }
+    label {
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+<h1>Time Converter</h1>
+<div>
+  <label for="days">Days: </label>
+  <input type="text" id="days">
+  <input id="daysBtn" type="button" value="Convert">
+</div>
+<div>
+  <label for="hours">Hours: </label>
+  <input type="text" id="hours">
+  <input id="hoursBtn" type="button" value="Convert">
+</div>
+<div>
+  <label for="minutes">Minutes: </label>
+  <input type="text" id="minutes">
+  <input id="minutesBtn" type="button" value="Convert">
+</div>
+<div>
+  <label for="seconds">Seconds: </label>
+  <input type="text" id="seconds">
+  <input id="secondsBtn" type="button" value="Convert">
+</div>
+<script>
+function main (){
+
+$("#daysBtn").on("click", (e) => {
+let $daysValue = $("#days").val();
+
+let $hoursValue = Number($daysValue)*24;
+let $minutesValue = Number($daysValue)*1440;
+let $secondsValue = Number($daysValue)*86400;
+
+$("#hours").val($hoursValue);
+$("#minutes").val($minutesValue);
+$("#seconds").val($secondsValue);
+
+})
+
+$("#hoursBtn").on("click", (e) => {
+let $hoursValue = $("#hours").val();
+
+let $daysValue = Number($hoursValue)/24;
+let $minutesValue = Number($hoursValue)*60;
+let $secondsValue = Number($hoursValue)*3600;
+
+$("#days").val(($daysValue).toFixed(2));
+$("#minutes").val($minutesValue);
+$("#seconds").val($secondsValue);
+
+})
+
+$("#minutesBtn").on("click", (e) => {
+let $minutesValue = $("#minutes").val();
+
+let $daysValue = Number($minutesValue)/1440;
+let $hoursValue = Number($minutesValue)/60;
+let $secondsValue = Number($minutesValue)*60;
+
+$("#days").val(($daysValue).toFixed(2));
+$("#hours").val(($hoursValue).toFixed(2));
+$("#seconds").val($secondsValue);
+
+})
+
+$("#secondsBtn").on("click", (e) => {
+let $secondsValue = $("#seconds").val();
+
+let $daysValue = Number($secondsValue)/86400;
+let $hoursValue = Number($secondsValue)/1440;
+let $minutesValue = Number($secondsValue)/60;
+
+$("#days").val(($daysValue).toFixed(2));
+$("#hours").val(($hoursValue).toFixed(2));
+$("#minutes").val(($minutesValue).toFixed(2));
+
+})
+}
+
+
+$(main());
+
+</script>
+</body>
+</html>
