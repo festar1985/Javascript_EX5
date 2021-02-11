@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timer</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <style>
+        #timer {
+            font-size: 5em;
+        }
+    </style>
+</head>
+<body>
+<div id="timer">
+    <span id="hours" class="timer">00</span>:
+    <span id="minutes" class="timer">00</span>:
+    <span id="seconds" class="timer">00</span>
+    <button id="start-timer">Start</button>
+    <button id="stop-timer">Stop</button>
+</div>
+
+<script>
+    function timer() {
+        let $seconds = $("#seconds");
+        let $minutes = $("#minutes");
+        let $hours = $("#hours");
+
+        $("#start-timer").on("click", (e) => {
+            e.stopPropagation();
+
+            let counter = setInterval(starTimer, 1000);
+            
+            function starTimer () {
+                $seconds.text((i,value) => {
+                    return +value +1;
+                });
+
+                if ($seconds.text() == 60) {
+                    $seconds.text((i,value) => {
+                    return 0;
+                    });
+                    $minutes.text((i,value) => {
+                    return +value +1;
+                    });
+                }
+                if ($minutes.text() == 60) {
+                    $minutes.text((i,value) => {
+                    return 0;
+                    });
+                    $hours.text((i,value) => {
+                    return +value +1;
+                    });
+                }
+            }
+
+            function stopTimer (){
+                clearInterval(counter);
+            }
+
+            $("#stop-timer").on("click", (e) => {
+                stopTimer();
+            });
+
+        })
+
+    }
+    
+    
+    $(timer());
+    
+</script>
+</body>
+</html>
