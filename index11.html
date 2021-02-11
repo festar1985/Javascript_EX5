@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Generator</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+
+    </div>
+
+<script>
+    function main () {
+        let divCounter = 1;
+
+        function createBook (selector, title, author, ISBN) {
+
+        let $parTitle = `<p class="title">${title}</p>`;
+        let $parAuthor = `<p class="author">${author}</p>`;
+        let $parISBN =   `<p class="ISBN">${ISBN}</p>`;
+        
+        
+        $(selector).append(`<div id="book${divCounter}">${$parTitle}<br>${$parAuthor}<br>${$parISBN}<br></div>`);
+        $(selector).append(`<div id="button"> <button>Select</button> <button>Deselect</button></div>`);
+        divCounter+=1;
+        }
+
+        $
+
+    createBook("#wrapper", "Alice in Wonderland", "Lewis Carroll", 1111);
+    createBook("#wrapper", "IT", "Stephen King", 6666);
+};
+    $(main());
+
+</script>
+</body>
+</html>
